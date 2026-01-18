@@ -1,13 +1,36 @@
 "use client";
 
+import Button from "@/components/Button";
+import Card from "@/components/Card";
+import Container from "@/components/Container";
+import SectionHeading from "@/components/SectionHeading";
 import { FormEvent, useState } from "react";
+
+const contactInfo = [
+  {
+    title: "Website",
+    value: "feecomelectronics.com",
+    href: "https://feecomelectronics.com",
+    icon: "🌐",
+  },
+  {
+    title: "Email",
+    value: "contact@feecomelectronics.com",
+    href: "mailto:contact@feecomelectronics.com",
+    icon: "✉️",
+  },
+  {
+    title: "Phone",
+    value: "469-547-7428",
+    href: "tel:+14695477428",
+    icon: "📞",
+  },
+];
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
-    subject: "",
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -24,141 +47,144 @@ export default function Contact() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
     console.log("Form submitted:", formData);
     setSubmitted(true);
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-    setTimeout(() => setSubmitted(false), 3000);
+    setFormData({ name: "", email: "", message: "" });
+    setTimeout(() => setSubmitted(false), 5000);
   };
+
+  const inputClasses =
+    "w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition";
 
   return (
     <div className="w-full">
-      <section className="bg-gray-50 py-20 px-4">
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-4xl font-bold mb-4 text-center">Contact Us</h1>
-          <p className="text-gray-600 text-center mb-12">
-            Get in touch with our team for any inquiries or support
+      {/* Header */}
+      <section className="bg-gradient-to-r from-deep to-steel py-16 px-4">
+        <Container>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
+          <p className="text-white/80 text-lg max-w-2xl">
+            Have questions about our products or services? Get in touch with our team.
           </p>
+        </Container>
+      </section>
+
+      <section className="py-20 px-4">
+        <Container size="narrow">
+          <SectionHeading
+            title="Send Us a Message"
+            subtitle="We&apos;ll get back to you as soon as possible"
+          />
 
           {submitted && (
-            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
+            <div className="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400">
               Thank you for your message! We&apos;ll get back to you soon.
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700 mb-1"
+          <Card padding="lg" className="mb-10">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-white/70 mb-2"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="Your name"
+                  className={inputClasses}
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-white/70 mb-2"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="your@email.com"
+                  className={inputClasses}
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-white/70 mb-2"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={6}
+                  placeholder="How can we help you?"
+                  className={`${inputClasses} resize-none`}
+                />
+              </div>
+
+              <Button type="submit" variant="primary" className="w-full">
+                Send Message
+              </Button>
+            </form>
+          </Card>
+
+          {/* Contact Info Cards */}
+          <SectionHeading
+            title="Other Ways to Reach Us"
+            subtitle="Connect with us directly"
+          />
+
+          <div className="grid md:grid-cols-3 gap-4 mb-10">
+            {contactInfo.map((info) => (
+              <a
+                key={info.title}
+                href={info.href}
+                target={info.title === "Website" ? "_blank" : undefined}
+                rel={info.title === "Website" ? "noopener noreferrer" : undefined}
+                className="block"
               >
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="phone"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Phone (Optional)
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="subject"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={6}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none resize-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
-            >
-              Send Message
-            </button>
-          </form>
-
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <h2 className="text-xl font-semibold mb-4">Other Ways to Reach Us</h2>
-            <div className="space-y-2 text-gray-700">
-              <p>
-                <strong>Email:</strong> info@feecomelectronics.com
-              </p>
-              <p>
-                <strong>Phone:</strong> +1 (555) 123-4567
-              </p>
-              <p>
-                <strong>Business Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM
-              </p>
-            </div>
+                <Card padding="md" hover className="text-center h-full">
+                  <div className="text-3xl mb-3">{info.icon}</div>
+                  <h3 className="text-lg font-semibold text-white mb-1">{info.title}</h3>
+                  <p className="text-primary hover:underline">{info.value}</p>
+                </Card>
+              </a>
+            ))}
           </div>
-        </div>
+
+          {/* Mailto Fallback */}
+          <Card padding="lg" className="text-center bg-gradient-to-r from-deep/50 to-steel/50">
+            <h2 className="text-xl font-semibold mb-3 text-white">
+              Prefer Email?
+            </h2>
+            <p className="text-white/70 mb-4">
+              Send us a message directly from your email client.
+            </p>
+            <a href="mailto:contact@feecomelectronics.com?subject=Inquiry%20from%20Website">
+              <Button variant="outline">
+                Open Email Client
+              </Button>
+            </a>
+          </Card>
+        </Container>
       </section>
     </div>
   );
