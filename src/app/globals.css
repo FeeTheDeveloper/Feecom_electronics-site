@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #141519;
+    --color-primary: #3C89C3;
+    --color-deep: #244964;
+    --color-steel: #36688E;
+    --color-gray1: #5C5C5F;
+    --color-gray2: #4F4F52;
+    --color-gray3: #414244;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-bg text-white antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+  }
+
+  /* Focus ring for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-bg;
+  }
+
+  /* Default link styles */
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  /* Muted text utility */
+  .text-muted {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Surface backgrounds */
+  .bg-surface {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Border utilities */
+  .border-subtle {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .border-muted {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Divider */
+  .divide-subtle > * + * {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer components {
+  /* Card component base */
+  .card {
+    @apply bg-surface border border-subtle rounded-lg;
+  }
+
+  /* Section container */
+  .section {
+    @apply py-16 md:py-20 px-4;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
