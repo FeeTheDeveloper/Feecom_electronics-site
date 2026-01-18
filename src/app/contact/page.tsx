@@ -164,7 +164,7 @@ export default function Contact() {
                 <Card padding="md" hover className="text-center h-full">
                   <div className="text-3xl mb-3">{info.icon}</div>
                   <h3 className="text-lg font-semibold text-white mb-1">{info.title}</h3>
-                  <p className="text-primary hover:underline">{info.value}</p>
+                  <p className="text-primary hover:underline text-sm sm:text-base break-all sm:break-normal">{info.value}</p>
                 </Card>
               </a>
             ))}
