@@ -45,17 +45,20 @@ Production-ready Next.js App Router website for Feecom Electronics & Exchange LL
 ### Local Development
 
 1. **Clone the repository**:
+
    ```bash
    git clone <repository-url>
    cd Feecom_electronics-site
    ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Run the development server**:
+
    ```bash
    npm run dev
    ```
@@ -76,11 +79,13 @@ Production-ready Next.js App Router website for Feecom Electronics & Exchange LL
 ### Local Build
 
 1. **Build the project**:
+
    ```bash
    npm run build
    ```
 
 2. **Start the production server**:
+
    ```bash
    npm start
    ```
@@ -151,11 +156,13 @@ vercel --prod
 ### Adding New Pages
 
 1. Create a new folder in `src/app/`:
+
    ```
    src/app/new-page/
    ```
 
 2. Create `page.tsx`:
+
    ```typescript
    export default function NewPage() {
      return (
@@ -187,13 +194,14 @@ vercel --prod
 
 Contact details appear in multiple locations. Update these files when contact info changes:
 
-| Information | File Location |
-|-------------|---------------|
-| Website, Email, Phone | `src/app/contact/page.tsx` - `contactInfo` array |
-| Footer contact links | `src/components/Footer.tsx` - Contact section |
-| SEO metadata | `src/app/contact/layout.tsx` - metadata description |
+| Information           | File Location                                       |
+| --------------------- | --------------------------------------------------- |
+| Website, Email, Phone | `src/app/contact/page.tsx` - `contactInfo` array    |
+| Footer contact links  | `src/components/Footer.tsx` - Contact section       |
+| SEO metadata          | `src/app/contact/layout.tsx` - metadata description |
 
 **Current Contact Info:**
+
 - Website: `feecomelectronics.com`
 - Email: `contact@feecomelectronics.com`
 - Phone: `469-547-7428`
@@ -201,11 +209,13 @@ Contact details appear in multiple locations. Update these files when contact in
 ### Updating Logo
 
 Replace the logo file at:
+
 ```
 public/assets/feecom-logo.svg
 ```
 
 The logo is used in:
+
 - Homepage hero: `src/app/page.tsx`
 - Navbar: `src/components/Navbar.tsx`
 - Footer: `src/components/Footer.tsx`
@@ -224,6 +234,7 @@ The logo is used in:
 ### Adding Components
 
 1. Create new file in `src/components/`:
+
    ```
    src/components/MyComponent.tsx
    ```
@@ -258,6 +269,7 @@ Create a `.env.local` file for local development (if needed):
 ### Build Fails
 
 1. Clear cache and rebuild:
+
    ```bash
    rm -rf .next node_modules
    npm install
@@ -265,6 +277,7 @@ Create a `.env.local` file for local development (if needed):
    ```
 
 2. Check for TypeScript errors:
+
    ```bash
    npx tsc --noEmit
    ```
@@ -277,6 +290,7 @@ Create a `.env.local` file for local development (if needed):
 ### Port Already in Use
 
 If port 3000 is already in use:
+
 ```bash
 npm run dev -- -p 3001
 ```
@@ -289,6 +303,7 @@ npm run dev -- -p 3001
 ## Support & Maintenance
 
 For questions or issues:
+
 - Email: contact@feecomelectronics.com
 - Documentation: [Next.js Docs](https://nextjs.org/docs)
 - Vercel: [Vercel Docs](https://vercel.com/docs)

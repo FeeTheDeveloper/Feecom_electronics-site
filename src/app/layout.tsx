@@ -8,8 +8,16 @@ export const metadata: Metadata = {
     default: "Feecom Electronics & Exchange LLC | Mobile Devices & Electronics",
     template: "%s | Feecom Electronics",
   },
-  description: "Online Buyer, Seller & Distributor of Mobile Devices and Electronics. We source, purchase, refurbish, and resell devices through secure logistics nationwide.",
-  keywords: ["electronics", "mobile devices", "smartphones", "tablets", "wholesale electronics", "refurbished phones"],
+  description:
+    "Online Buyer, Seller & Distributor of Mobile Devices and Electronics. We source, purchase, refurbish, and resell devices through secure logistics nationwide.",
+  keywords: [
+    "electronics",
+    "mobile devices",
+    "smartphones",
+    "tablets",
+    "wholesale electronics",
+    "refurbished phones",
+  ],
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -24,11 +32,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen bg-bg text-white">
+      <body className="flex min-h-screen flex-col bg-bg text-white">
         <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

@@ -13,13 +13,15 @@ This directory contains static assets served at the root URL.
 ## Usage
 
 Files in this directory can be referenced as:
+
 ```html
 <img src="/logo.png" alt="Feecom Logo" />
 ```
 
 Or in Next.js:
-```tsx
-import Image from 'next/image';
 
-<Image src="/logo.png" alt="Feecom Logo" width={200} height={50} />
+```tsx
+import Image from "next/image";
+
+<Image src="/logo.png" alt="Feecom Logo" width={200} height={50} />;
 ```

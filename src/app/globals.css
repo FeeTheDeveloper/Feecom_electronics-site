@@ -5,11 +5,11 @@
 @layer base {
   :root {
     --color-bg: #141519;
-    --color-primary: #3C89C3;
+    --color-primary: #3c89c3;
     --color-deep: #244964;
-    --color-steel: #36688E;
-    --color-gray1: #5C5C5F;
-    --color-gray2: #4F4F52;
+    --color-steel: #36688e;
+    --color-gray1: #5c5c5f;
+    --color-gray2: #4f4f52;
     --color-gray3: #414244;
   }
 
@@ -19,7 +19,8 @@
 
   body {
     @apply bg-bg text-white antialiased;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
   }
@@ -62,16 +63,16 @@
 @layer components {
   /* Card component base */
   .card {
-    @apply bg-surface border border-subtle rounded-lg;
+    @apply rounded-lg border border-subtle bg-surface;
   }
 
   /* Section container */
   .section {
-    @apply py-16 md:py-20 px-4;
+    @apply px-4 py-16 md:py-20;
   }
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }

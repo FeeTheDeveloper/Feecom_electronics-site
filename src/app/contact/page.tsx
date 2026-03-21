@@ -59,24 +59,27 @@ export default function Contact() {
   return (
     <div className="w-full">
       {/* Header */}
-      <section className="bg-gradient-to-r from-deep to-steel py-16 px-4">
+      <section className="bg-gradient-to-r from-deep to-steel px-4 py-16">
         <Container>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
-          <p className="text-white/80 text-lg max-w-2xl">
-            Have questions about our products or services? Get in touch with our team.
+          <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl">
+            Contact Us
+          </h1>
+          <p className="max-w-2xl text-lg text-white/80">
+            Have questions about our products or services? Get in touch with our
+            team.
           </p>
         </Container>
       </section>
 
-      <section className="py-20 px-4">
+      <section className="px-4 py-20">
         <Container size="narrow">
           <SectionHeading
             title="Send Us a Message"
-            subtitle="We&apos;ll get back to you as soon as possible"
+            subtitle="We'll get back to you as soon as possible"
           />
 
           {submitted && (
-            <div className="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400">
+            <div className="mb-6 rounded-lg border border-green-500/30 bg-green-500/10 p-4 text-green-400">
               Thank you for your message! We&apos;ll get back to you soon.
             </div>
           )}
@@ -86,7 +89,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-white/70 mb-2"
+                  className="mb-2 block text-sm font-medium text-white/70"
                 >
                   Name
                 </label>
@@ -105,7 +108,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-white/70 mb-2"
+                  className="mb-2 block text-sm font-medium text-white/70"
                 >
                   Email
                 </label>
@@ -124,7 +127,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-white/70 mb-2"
+                  className="mb-2 block text-sm font-medium text-white/70"
                 >
                   Message
                 </label>
@@ -152,36 +155,43 @@ export default function Contact() {
             subtitle="Connect with us directly"
           />
 
-          <div className="grid md:grid-cols-3 gap-4 mb-10">
+          <div className="mb-10 grid gap-4 md:grid-cols-3">
             {contactInfo.map((info) => (
               <a
                 key={info.title}
                 href={info.href}
                 target={info.title === "Website" ? "_blank" : undefined}
-                rel={info.title === "Website" ? "noopener noreferrer" : undefined}
+                rel={
+                  info.title === "Website" ? "noopener noreferrer" : undefined
+                }
                 className="block"
               >
-                <Card padding="md" hover className="text-center h-full">
-                  <div className="text-3xl mb-3">{info.icon}</div>
-                  <h3 className="text-lg font-semibold text-white mb-1">{info.title}</h3>
-                  <p className="text-primary hover:underline text-sm sm:text-base break-all sm:break-normal">{info.value}</p>
+                <Card padding="md" hover className="h-full text-center">
+                  <div className="mb-3 text-3xl">{info.icon}</div>
+                  <h3 className="mb-1 text-lg font-semibold text-white">
+                    {info.title}
+                  </h3>
+                  <p className="break-all text-sm text-primary hover:underline sm:break-normal sm:text-base">
+                    {info.value}
+                  </p>
                 </Card>
               </a>
             ))}
           </div>
 
           {/* Mailto Fallback */}
-          <Card padding="lg" className="text-center bg-gradient-to-r from-deep/50 to-steel/50">
-            <h2 className="text-xl font-semibold mb-3 text-white">
+          <Card
+            padding="lg"
+            className="bg-gradient-to-r from-deep/50 to-steel/50 text-center"
+          >
+            <h2 className="mb-3 text-xl font-semibold text-white">
               Prefer Email?
             </h2>
-            <p className="text-white/70 mb-4">
+            <p className="mb-4 text-white/70">
               Send us a message directly from your email client.
             </p>
             <a href="mailto:contact@feecomelectronics.com?subject=Inquiry%20from%20Website">
-              <Button variant="outline">
-                Open Email Client
-              </Button>
+              <Button variant="outline">Open Email Client</Button>
             </a>
           </Card>
         </Container>

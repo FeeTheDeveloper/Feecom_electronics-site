@@ -24,8 +24,7 @@ export default function Button({
       "bg-gradient-to-r from-neonPink via-neonPurple to-neonBlue text-white shadow-lg shadow-neonPink/20 hover:brightness-105",
     outline:
       "border border-neonPurple/50 text-neonPurple bg-transparent hover:bg-neonPurple/10 active:bg-neonPurple/20",
-    subtle:
-      "bg-white/5 text-white hover:bg-white/10 active:bg-white/15",
+    subtle: "bg-white/5 text-white hover:bg-white/10 active:bg-white/15",
   };
 
   const sizeClasses = {
