@@ -8,7 +8,8 @@ import Link from "next/link";
 const services = [
   {
     title: "Buying & Reselling Smartphones",
-    description: "Quality certified smartphones from trusted suppliers, available for individual and bulk purchases.",
+    description:
+      "Quality certified smartphones from trusted suppliers, available for individual and bulk purchases.",
   },
   {
     title: "Tablets & Mobile Computing",
@@ -44,7 +45,17 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="min-h-[70vh] md:min-h-[80vh] flex items-center justify-center bg-bg px-4">
+      <section className="min-h-[70vh] md:min-h-[80vh] flex items-center justify-center bg-bg px-4 relative overflow-hidden">
+        {/* Animated blurred blobs */}
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-neonPurple opacity-40 blur-3xl rounded-full animate-pulse-slow" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-neonPink opacity-40 blur-3xl rounded-full animate-pulse-slow" />
+        {/* Hero background image */}
+        <Image
+          src="/assets/hero-bg.png"
+          alt="Futuristic background"
+          fill
+          className="object-cover absolute inset-0 -z-10 opacity-30"
+        />
         <div className="flex flex-col items-center text-center">
           {/* Logo Container - Responsive sizing */}
           <div className="w-full max-w-[260px] sm:max-w-[360px] lg:max-w-[480px] mb-8">
@@ -57,12 +68,12 @@ export default function Home() {
               className="w-full h-auto"
             />
           </div>
-          
+
           {/* Headline */}
           <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-2xl mx-auto mb-8 font-medium">
             Online Buyer, Seller &amp; Distributor of Mobile Devices and Electronics
           </p>
-          
+
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/products-services">
@@ -88,7 +99,10 @@ export default function Home() {
           />
           <Card padding="lg" className="text-center">
             <p className="text-white/80 text-lg leading-relaxed max-w-4xl mx-auto">
-              Feecom Electronics & Exchange LLC is an online-based electronics buyer and dealer specializing in cell phones, tablets, and consumer electronic accessories. We source, purchase, refurbish, and resell devices through secure logistics and trusted supplier channels, serving both individual and bulk buyers nationwide.
+              Feecom Electronics & Exchange LLC is an online-based electronics buyer and dealer specializing in cell
+              phones, tablets, and consumer electronic accessories. We source, purchase, refurbish, and resell
+              devices through secure logistics and trusted supplier channels, serving both individual and bulk
+              buyers nationwide.
             </p>
           </Card>
         </Container>
@@ -103,7 +117,7 @@ export default function Home() {
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
-              <Card key={service.title} hover>
+              <Card key={service.title} hover className="hover:shadow-neonPink/30 hover:scale-[1.03]">
                 <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
                 <p className="text-white/70">{service.description}</p>
               </Card>
@@ -126,7 +140,7 @@ export default function Home() {
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
             {whyFeecom.map((item) => (
-              <Card key={item.title} padding="md" className="text-center">
+              <Card key={item.title} padding="md" className="text-center hover:shadow-neonPurple/30 hover:scale-[1.03]">
                 <h3 className="text-lg font-semibold mb-2 text-primary">{item.title}</h3>
                 <p className="text-white/70 text-sm">{item.description}</p>
               </Card>
@@ -136,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-deep to-steel">
+      <section className="py-20 px-4 bg-gradient-to-r from-deep via-steel to-primary">
         <Container size="narrow">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">

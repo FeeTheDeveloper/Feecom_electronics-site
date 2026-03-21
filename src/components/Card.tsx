@@ -21,7 +21,7 @@ export default function Card({
   };
 
   const hoverClasses = hover
-    ? "hover:bg-white/[0.08] hover:border-white/20 transition-colors duration-200"
+    ? "hover:bg-white/[0.08] hover:border-neonPink/40 hover:shadow-lg hover:shadow-neonPink/20 hover:scale-[1.02] transition-all duration-300"
     : "";
 
   return (
