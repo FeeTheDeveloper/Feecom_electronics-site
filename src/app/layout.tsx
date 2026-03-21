@@ -2,14 +2,19 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Feecom Electronics & Exchange LLC | Mobile Devices & Electronics",
     template: "%s | Feecom Electronics",
   },
   description:
     "Online Buyer, Seller & Distributor of Mobile Devices and Electronics. We source, purchase, refurbish, and resell devices through secure logistics nationwide.",
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "electronics",
     "mobile devices",
@@ -21,7 +26,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Feecom Electronics & Exchange LLC",
+    url: "/",
+    siteName,
+  },
+  twitter: {
+    card: "summary",
+    title: "Feecom Electronics & Exchange LLC | Mobile Devices & Electronics",
+    description:
+      "Online Buyer, Seller & Distributor of Mobile Devices and Electronics.",
+  },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
   },
 };
 
