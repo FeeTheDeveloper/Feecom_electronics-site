@@ -3,6 +3,7 @@ import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
+import VeteranOwnedBadgeSection from "@/components/sections/veteran-owned-badge-section";
 import Link from "next/link";
 
 const services = [
@@ -129,6 +130,8 @@ export default function Home() {
           </Card>
         </Container>
       </section>
+
+      <VeteranOwnedBadgeSection />
 
       {/* Services Section */}
       <section className="bg-white/[0.02] px-4 py-20">

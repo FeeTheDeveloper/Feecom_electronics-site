@@ -3,6 +3,7 @@ import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
+import VeteranOwnedBadgeSection from "@/components/sections/veteran-owned-badge-section";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -102,6 +103,8 @@ export default function TrustCompliance() {
           </div>
         </Container>
       </section>
+
+      <VeteranOwnedBadgeSection className="py-16" />
 
       {/* Business Readiness */}
       <section className="bg-white/[0.02] px-4 py-20">
