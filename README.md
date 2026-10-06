@@ -2,6 +2,8 @@
 
 Marketing website for Feecom Electronics & Exchange LLC, built with Next.js App Router and prepared for an initial Vercel deployment.
 
+[Portfolio evidence and truth boundary](docs/PORTFOLIO_CASE_STUDY.md)
+
 ## Stack
 
 - Next.js 15
